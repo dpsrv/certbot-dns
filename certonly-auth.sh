@@ -1,9 +1,5 @@
-#!/bin/ash -e
-echo "$CERTBOT_DOMAIN: Validating"
-
-logFile=$(basename $0)
-exec 1> $logFile.$CERTBOT_DOMAIN.out
-exec 2> $logFile.$CERTBOT_DOMAIN.err
+#!/bin/ash -ex
+echo "$CERTBOT_DOMAIN: Validating $CERTBOT_VALIDATION"
 
 domain=${CERTBOT_DOMAIN##\*.}
 zoneFile=/etc/bind/zones/$domain
