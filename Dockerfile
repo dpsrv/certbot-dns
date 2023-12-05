@@ -1,6 +1,6 @@
 FROM certbot/certbot
 
-COPY certonly.sh /opt/certbot/
+COPY certonly*.sh /opt/certbot/
 COPY getDomains.sh /opt/certbot/
 COPY docker-entrypoint.sh /opt/certbot/
 
