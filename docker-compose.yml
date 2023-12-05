@@ -1,5 +1,5 @@
 services:
-  certbot:
+  certbot-dns:
     build: .
     image: dpsrv/certbot-dns
     container_name: certbot-dns

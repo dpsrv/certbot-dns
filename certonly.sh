@@ -7,11 +7,11 @@ cd -
 domains=$($WD/getDomains.sh /etc/bind/zones|tr '\n' ','|sed 's/,$//g')
 
 certbot certonly -n --manual --text --agree-tos --preferred-challenges dns \
-	--manual-public-ip-logging-ok \
 	--manual-auth-hook $WD/certonly-auth.sh \
 	--manual-cleanup-hook $WD/certonly-cleanup.sh \
 	--email $LETSENCRYPT_EMAIL \
 	-d "$domains" \
+	--expand \
 	"$@"
 
 domain=${domains%%,*}
