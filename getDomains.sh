@@ -22,5 +22,5 @@ done|sort
 
 for zone in $filtered; do
 		echo $zone
-		#echo *.$zone
+		echo *.$zone
 done
