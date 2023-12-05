@@ -1,0 +1,15 @@
+services:
+  certbot:
+    build: .
+    image: dpsrv/certbot-dns
+    container_name: certbot-dns
+    env_file: ${DPSRV_HOME}/rc/secrets/certbot/certbot.env
+    volumes:
+      - ${DPSRV_HOME}/rc/secrets/bind:/etc/bind/
+      - ${DPSRV_HOME}/rc/secrets/letsencrypt/:/etc/letsencrypt/
+      - /etc/localtime:/etc/localtime:ro
+    restart: "no"
+networks:
+  default:
+    name: dpsrv
+    external: true

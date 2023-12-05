@@ -1,0 +1,2 @@
+#!/bin/ash -e
+env
