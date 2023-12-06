@@ -6,7 +6,7 @@ zoneFile=/etc/bind/zones/$domain
 
 echo "_acme-challenge		TXT	$CERTBOT_VALIDATION" >> $zoneFile
 serial=$(grep '; serial' $zoneFile|awk '{ print $1 }')
-nextSerial=$( date +%Y%m%d%S )
+nextSerial=$( date +%Y%m%d%H%m%S )
 sed -i.$serial "s/[0-9]* ; serial/$nextSerial ; serial/" $zoneFile
 
 NS=$(nslookup -q=ns $domain|grep "nameserver"|awk '{ print $4 }'|head -1)
