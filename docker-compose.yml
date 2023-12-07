@@ -3,7 +3,9 @@ services:
     build: .
     image: dpsrv/certbot-dns
     container_name: certbot-dns
-    env_file: ${DPSRV_HOME}/rc/secrets/certbot/certbot.env
+    env_file:
+      - ${DPSRV_HOME}/rc/secrets/certbot/certbot.env
+      - ${DPSRV_HOME}/local.env
     volumes:
       - ${DPSRV_HOME}/rc/secrets/bind:/etc/bind/
       - ${DPSRV_HOME}/rc/secrets/letsencrypt/:/etc/letsencrypt/
