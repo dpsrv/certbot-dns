@@ -1,8 +1,8 @@
 services:
-  certbot-dns:
+  dpsrv-certbot-dns:
     build: .
     image: dpsrv/certbot-dns
-    container_name: certbot-dns
+    container_name: dpsrv-certbot-dns
     env_file:
       - ${DPSRV_HOME}/rc/secrets/certbot/certbot.env
       - ${DPSRV_HOME}/local.env

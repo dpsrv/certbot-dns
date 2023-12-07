@@ -1,5 +1,11 @@
 #!/bin/ash -ex
 
+[ -n $DPSRV_REGION ] || exit
+[ -n $DPSRV_DOMAIN ] || exit
+host dns-main.$DPSRV_REGION | grep -q $DPSRV_REGION.$DPSRV_DOMAIN || exit
+
+exit
+
 cd $(dirname $0)
 WD=$(pwd)
 cd -
