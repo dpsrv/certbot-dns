@@ -9,6 +9,9 @@ services:
     volumes:
       - ${DPSRV_HOME}/rc/secrets/bind:/etc/bind/
       - ${DPSRV_HOME}/rc/secrets/letsencrypt/:/etc/letsencrypt/
+      - $HOME/.git-credentials:/root/.git-credentials:ro
+      - $HOME/.gitconfig:/root/.gitconfig:ro
+      - $HOME/.config:/root/.config:ro
       - /etc/localtime:/etc/localtime:ro
     restart: "no"
 networks:
