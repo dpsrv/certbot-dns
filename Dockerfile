@@ -1,5 +1,8 @@
 FROM certbot/certbot
 
+RUN apk --update add bind-tools \
+	&& rm -rf /var/cache/apk/*
+
 COPY certonly*.sh /opt/certbot/
 COPY getDomains.sh /opt/certbot/
 COPY docker-entrypoint.sh /opt/certbot/
