@@ -15,7 +15,7 @@ if [ -n "$*" ]; then
 fi
 
 if [ -e /etc/letsencrypt/archive ]; then
-	exec certbot renew 
+	exec certbot renew --expand
 	exit
 fi
 
