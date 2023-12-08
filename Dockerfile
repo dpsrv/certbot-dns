@@ -1,6 +1,6 @@
 FROM certbot/certbot
 
-RUN apk --update add bind-tools openssl \
+RUN apk --update add bind-tools openssl git \
 	&& rm -rf /var/cache/apk/*
 
 COPY certonly*.sh /opt/certbot/
