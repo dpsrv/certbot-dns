@@ -5,13 +5,13 @@ services:
     container_name: dpsrv-certbot-dns
     env_file:
       - ${DPSRV_HOME}/rc/secrets/certbot/certbot.env
-      - ${DPSRV_HOME}/local.env
+      - ${DPSRV_HOME}/rc/secrets/local/${HOSTNAME}/local.env
     volumes:
       - ${DPSRV_HOME}/rc/secrets/bind:/etc/bind/
       - ${DPSRV_HOME}/rc/secrets/letsencrypt/:/etc/letsencrypt/
-      - $HOME/.git-credentials:/root/.git-credentials:ro
-      - $HOME/.gitconfig:/root/.gitconfig:ro
-      - $HOME/.config:/root/.config:ro
+      - ${HOME}/.git-credentials:/root/.git-credentials:ro
+      - ${HOME}/.gitconfig:/root/.gitconfig:ro
+      - ${HOME}/.config:/root/.config:ro
       - /etc/localtime:/etc/localtime:ro
     restart: "no"
 networks:
