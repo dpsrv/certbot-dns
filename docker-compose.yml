@@ -6,7 +6,7 @@ services:
     hostname: $HOSTNAME.dpsrv.me
     env_file:
       - ${DPSRV_HOME}/rc/secrets/certbot/certbot.env
-      - ${DPSRV_HOME}/rc/secrets/local/${HOSTNAME}/local.env
+      - ${DPSRV_HOME}/rc/secrets/local/${HOSTNAME}/${HOSTNAME}.env
     volumes:
       - ${DPSRV_HOME}/rc/secrets/bind:/etc/bind/
       - ${DPSRV_HOME}/rc/secrets/letsencrypt/:/etc/letsencrypt/
