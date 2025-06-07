@@ -14,7 +14,7 @@ certbot certonly -n --manual --text --agree-tos --preferred-challenges dns \
 	--expand \
 	"$@"
 
-domain=${domains%%,*}
+domain=$(ls -ldtr /etc/letsencrypt/live/*|grep ^d|tail -1|awk '{ print $9 }'|sed 's#^/.*/##g')
 
 [ ! -e /etc/letsencrypt/live/domain ] || rm  /etc/letsencrypt/live/domain
 ln -s /etc/letsencrypt/live/${domain%%,*} /etc/letsencrypt/live/domain
