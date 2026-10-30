@@ -2,7 +2,7 @@
 
 path=$1
 
-zones=$(ls -1 $path|grep -v '[0-9]$')
+zones=$(grep ^zone $path/../named.conf.zones|cut -d'"' -f2|sort -fu)
 
 sorted=$(
 for zone in $zones; do
